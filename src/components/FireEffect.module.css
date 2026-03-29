@@ -1,0 +1,78 @@
+.fireContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    /* Above background, below content */
+    overflow: hidden;
+}
+
+/* Embers / Sparks */
+.ember {
+    position: absolute;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    background: #FFD700;
+    /* Gold */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #FF4500, 0 0 20px #FFD700;
+    animation: rise linear infinite;
+    opacity: 0;
+}
+
+/* Smoke */
+.smoke {
+    position: absolute;
+    bottom: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(50, 50, 50, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    animation: smokeRise linear infinite;
+    opacity: 0;
+    filter: blur(20px);
+}
+
+@keyframes rise {
+    0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0) scale(1);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) translateX(calc(-20px + 40px * var(--random-x, 0.5))) scale(0.5);
+    }
+}
+
+@keyframes smokeRise {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(1);
+    }
+
+    20% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-80vh) scale(3);
+    }
+}
