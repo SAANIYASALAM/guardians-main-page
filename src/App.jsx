@@ -24,12 +24,12 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/arts" element={<Arts />} />
             <Route path="/sports" element={<Sports />} />
-            <Route path="/overall" element={<Navigate to="/overall-champion" replace />} />
+            <Route path="/o" element={<Navigate to="/overall-champion" replace />} />
             <Route path="/overall-all" element={<OverallChampionsPage />} />
             <Route path="/overall-champion" element={<OverallChampionPage />} />
-            <Route path="/overall-runner-up" element={<OverallRunnerUpPage />} />
-            <Route path="/layatharang" element={<LayatharangChampionsPage />} />
-            <Route path="/chakravyuh" element={<ChakravyuhChampionsPage />} />
+            <Route path="/or" element={<OverallRunnerUpPage />} />
+            <Route path="/l" element={<LayatharangChampionsPage />} />
+            <Route path="/c" element={<ChakravyuhChampionsPage />} />
 
             <Route path="/admin" element={<RequireAuth><AdminLayout /></RequireAuth>}>
                 <Route index element={<AdminPage />} />
