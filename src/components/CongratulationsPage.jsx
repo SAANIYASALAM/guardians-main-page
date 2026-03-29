@@ -1,8 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import styles from './CongratulationsPage.module.css';
 
-const CongratulationsPage = ({ pageTitle, entries, logoCentric = false }) => {
+const CongratulationsPage = ({ pageTitle, entries, logoCentric = false, countdownSeconds = 5 }) => {
+  const [secondsLeft, setSecondsLeft] = useState(countdownSeconds);
+
+  useEffect(() => {
+    setSecondsLeft(countdownSeconds);
+
+    const intervalId = setInterval(() => {
+      setSecondsLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [countdownSeconds]);
+
+  if (secondsLeft > 0) {
+    return (
+      <main className={styles.page}>
+        <div className={styles.glowTop} aria-hidden="true" />
+        <div className={styles.glowBottom} aria-hidden="true" />
+
+        <section className={styles.countdownContainer}>
+          <p className={styles.college}>Govt. Model Engineering College</p>
+          <p className={styles.countdownLabel}>Loading Champions</p>
+          <h1 className={styles.countdownNumber}>{secondsLeft}</h1>
+          <p className={styles.countdownSubtext}>Please wait...</p>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className={styles.page}>
       <div className={styles.glowTop} aria-hidden="true" />
@@ -26,7 +53,6 @@ const CongratulationsPage = ({ pageTitle, entries, logoCentric = false }) => {
             </article>
           ))}
         </div>
-
       </section>
     </main>
   );

@@ -53,7 +53,7 @@ const OverallChampionPage = () => {
 
   return (
     <CongratulationsPage
-      pageTitle={loading ? 'Loading Overall Champion...' : 'Overall Champion'}
+      pageTitle={loading ? 'Loading Champion...' : 'Layatharang & Chakravyuh Champion'}
       entries={entries}
       logoCentric
     />

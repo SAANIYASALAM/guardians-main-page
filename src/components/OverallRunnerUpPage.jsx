@@ -53,7 +53,7 @@ const OverallRunnerUpPage = () => {
 
   return (
     <CongratulationsPage
-      pageTitle={loading ? 'Loading Overall Runner Up...' : 'Overall Runner Up'}
+      pageTitle={loading ? 'Loading Runner Up...' : 'Layatharang & Chakravyuh Runner Up'}
       entries={entries}
       logoCentric
     />
